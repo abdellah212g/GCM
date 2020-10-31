@@ -1,6 +1,7 @@
 .container { padding-top:10px}
 .rounded { width:100px}
 .img-thumbnail { width:80px!important}
+
 #overlay {
     background: #ffffff;
     color: #666666;
@@ -16,3 +17,8 @@
     opacity: .80;
   }
 
+#menu-top {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
