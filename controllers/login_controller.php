@@ -10,7 +10,7 @@ if(!empty($_POST) && isset($_POST['submit'])){
 
         if( $password == $query_password )
         {
-            $page = 'admin';
+            $page = 'user';
         } else {
             echo 'Error password !! ';
         }
