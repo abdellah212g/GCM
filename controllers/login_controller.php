@@ -1,22 +1,21 @@
 <?php
-$fetched_data = array(['login'=>'Abdou', 'password'=>'123'], ['login'=>'Iliass', 'password'=>'321']);
+if(!empty($_POST) && isset($_POST['submit'])){
 
-if (isset($_POST['login']) && isset($_POST['password']))
-{
-    $search_password = array_search($_POST['password'], array_column($fetched_data, 'password'));
-
-    if(is_int($search_password))
+    if (isset( $_POST['login']) && isset($_POST['password'] ))
     {
-        echo 'Connected';
+        $username = $_POST['login'];
+        $password = $_POST['password'];
+
+        $query_password = $db->fetchValue('password', 'users', 'username', $username);
+
+        if( $password == $query_password )
+        {
+            $page = 'admin';
+        } else {
+            echo 'Error password !! ';
+        }
+
     } else {
-        $new_login = array('login'=>$_POST['login'], 'password'=>$_POST['password']);
-        $new_data = $fetched_data + $new_login;
-
-        echo "<pre>";
-        print_r($new_data);
-        echo "<pre>";
+        header("Location: 404.php");
     }
-
-} else {
-    header("Location: ../404.php");
 }
