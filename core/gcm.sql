@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `gcm`
 --
+CREATE DATABASE IF NOT EXISTS `gcm` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `gcm`;
 
 -- --------------------------------------------------------
 
