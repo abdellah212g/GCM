@@ -2,14 +2,17 @@
 include_once 'helpers/functions.php';
 autoload();
 
-$db = new Database('localhost', 'gcm', 'root', 'rasetasa@click@1200');
-// $db->setFetchMode(PDO::FETCH_ASSOC);
+$db = new Erebos('localhost', 'gcm', 'root', '');
 
-$request = <<<EOT
-    Select * users
-EOT;
+// $newUser = array(
+//     "username"=>'iliass',
+//     "email"=>'iliass@example.com',
+//     "password"=>"123",
+// );
 
-$query = $db->fetch($request);
+// $query1 = $db->fetchValue('password', 'users', 'username', 'abdou');
+// $query2 = $db->fetchObject('users', 'username', 'abdou');
+// $query3 = $db->insertRow('users', ':username, :email, :password', $newUser);
+// $query4 = $db->fetchObject('users', 'username', 'iliass');
 
-
-debug($query);
+// debug($query1);
