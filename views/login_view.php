@@ -14,7 +14,7 @@
       <input name="uname" type="text" placeholder="username"/>
       <input name="psw" type="password" placeholder="password"/>
       <button name="submit" type="submit">login</button>
-      <p class="message">Not registered? <a href="">Create an account</a></p>
+      <p class="message">Not registered? <a href="#">Create an account</a></p>
     </form>
   </div>
 </div>

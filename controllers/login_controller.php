@@ -12,7 +12,7 @@ if(!empty($_POST) && isset($_POST['submit'])){
         {
             $page = 'user';
         } else {
-            echo 'Error password !! ';
+            echo "<script>alert(\"Error password!\")</script>";
         }
 
     } else {
