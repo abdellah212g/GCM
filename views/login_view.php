@@ -1,18 +1,22 @@
 <?php include_once 'includes/header.php' ?>
+<?php include_once 'includes/navbar.php' ?>
 
-<div class="w3-container w3-center" style="padding:128px 16px">
-    <form enctype="multipart/form-data" method="post">
-        <fieldset>
-            <legend>Log-In</legend>
-                <p>
-                    <label>Login :</label>
-                    <input name="login" type="text" />
-                    <label>Password :</label>
-                    <input name="password" type="password" />
-                    <input type="submit" name="submit" value="Login" />
-                </p>
-        </fieldset>
+<div class="login-page">
+  <div class="form">
+    <form class="register-form" enctype="multipart/form-data" method="post">
+      <input name="name" type="text" placeholder="name"/>
+      <input name="confirmPsw" type="password" placeholder="password"/>
+      <input name="email" type="text" placeholder="email address"/>
+      <button name="register" type="submit">create</button>
+      <p class="message">Already registered? <a href="">Sign In</a></p>
     </form>
+    <form class="login-form" enctype="multipart/form-data" method="post">
+      <input name="uname" type="text" placeholder="username"/>
+      <input name="psw" type="password" placeholder="password"/>
+      <button name="submit" type="submit">login</button>
+      <p class="message">Not registered? <a href="">Create an account</a></p>
+    </form>
+  </div>
 </div>
 
 <?php include_once 'includes/footer.php' ?>

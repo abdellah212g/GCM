@@ -7,3 +7,7 @@
       x.className = x.className.replace(" w3-show", "");
     }
 }
+// Toggle between login and register
+$('.message a').click(function(){
+  $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+});

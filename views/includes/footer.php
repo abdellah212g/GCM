@@ -1,7 +1,3 @@
-<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
-    <h1 class="w3-margin w3-xlarge">Bienvenue chez Médical DU BLAD</h1>
-</div>
-
 <!-- Footer -->
 <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
   <div class="w3-xlarge w3-padding-32">
@@ -15,7 +11,8 @@
  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">Abdellah Marzouk</a></p>
 </footer>
 
-<script src="./assets/js/main.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/main.js"></script>
 
 </body>
 </html>

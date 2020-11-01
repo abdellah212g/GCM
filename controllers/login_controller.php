@@ -1,10 +1,10 @@
 <?php
 if(!empty($_POST) && isset($_POST['submit'])){
 
-    if (isset( $_POST['login']) && isset($_POST['password'] ))
+    if ( isset($_POST['uname']) && isset($_POST['psw']) )
     {
-        $username = $_POST['login'];
-        $password = $_POST['password'];
+        $username = $_POST['uname'];
+        $password = $_POST['psw'];
 
         $query_password = $db->fetchValue('password', 'users', 'username', $username);
 

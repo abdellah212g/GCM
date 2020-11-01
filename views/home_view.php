@@ -1,7 +1,9 @@
 <?php include_once 'includes/header.php' ?>
+<?php include_once 'includes/navbar.php' ?>
+
 <!-- Header -->
-<header class="w3-container w3-red w3-center" style="padding:128px 16px">
-  <h1 class="w3-margin w3-jumbo">Médical DU BLAD</h1>
+<header class="w3-container w3-red w3-center" style="padding:128px 16px;">
+  <h1 class="w3-margin w3-jumbo">Médical DU BLED</h1>
   <p class="w3-xlarge">Médecin généraliste à YOUSSOUFIA : réserver en ligne un RDV</p>
   <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Prendre un rendez-vous</button>
 </header>
@@ -39,6 +41,10 @@
         laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
   </div>
+</div>
+
+<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+    <h1 class="w3-margin w3-xlarge">Bienvenue chez Médical DU BLED</h1>
 </div>
 
 <?php include_once 'includes/footer.php' ?>
