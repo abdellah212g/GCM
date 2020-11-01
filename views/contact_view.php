@@ -1,4 +1,16 @@
 <?php include_once 'includes/header.php' ?>
 <?php include_once 'includes/navbar.php' ?>
 
+<div class="login-page">
+  <div class="form">
+    <form  enctype="multipart/form-data" method="post">
+      <input name="fname" type="text" placeholder="First Name" required/>
+      <input name="lname" type="text" placeholder="Last Name" required/>
+      <input type="tel" id="phone" name="phone" placeholder="Phone Number" pattern="[0-9]{10}" required/> 
+      <textarea name="msg" type="text" placeholder="Your message" required></textarea>
+      <button name="submit" type="submit">send</button>
+    </form>
+  </div>
+</div>
+
 <?php include_once 'includes/footer.php' ?>
