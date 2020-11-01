@@ -1,1 +1,1 @@
-<h1>ERROR 404 !!</h1>
+<img src="assets/img/404.webp" alt="404" style="display: block;margin-left: auto;margin-right: auto;">
