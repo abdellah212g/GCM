@@ -2,12 +2,18 @@
 include_once "core/init.php";
 
 //definition de la page courante
-if(isset($_GET['page']) AND !empty($_GET['page'])){
-    $page = trim(strtolower($_GET['page'])); //HOME
- }
- else {
+if(isset($_GET['page']) AND !empty($_GET['page']))
+{
+    if ($_GET['page'] == 'logout'){
+        session_destroy();
+        unset($_SESSION['username']);
+        $page= 'home';
+    } else {
+        $page = trim(strtolower($_GET['page'])); //HOME
+    }
+} else {
     $page = 'home';
- }
+}
 
  //array contenant toutes les pages
 $all_pages = scandir('controllers/');
