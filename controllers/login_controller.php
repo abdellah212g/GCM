@@ -32,7 +32,10 @@ if(!empty($_POST) && isset($_POST['submitForm']))
             "password"=>$_POST['confirmPsw']
         );
 
-        $query3 = $db->insertRow('users', ':username, :email, :password', $newUser);
+        $db->insertRow('users', ':username, :email, :password', $newUser);
+        $query_username = $db->fetchValue('username', 'users', 'username', $_POST['name']);
+        $_SESSION['username'] = $query_username;
+        $access = $db->fetchValue('access', 'users', 'username', $_SESSION['username']);
         $page = 'user';
     } else {
         header("Location: 404.php");
