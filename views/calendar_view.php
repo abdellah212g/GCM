@@ -15,7 +15,7 @@ $dayOfWeek = date('w', $firstDay);
 <table class=calendar>
     <caption><? echo($strMonth); ?></caption>
     <thead>
-        <tr>
+        <tr class="w3-grey">
             <th abbr="Sunday" scope="col" title="Sunday">S</th>
             <th abbr="Monday" scope="col" title="Monday">M</th>
             <th abbr="Tuesday" scope="col" title="Tuesday">T</th>
@@ -27,28 +27,28 @@ $dayOfWeek = date('w', $firstDay);
     </thead>
     <tbody>
         <tr>
-<?php
-if(0 != $dayOfWeek) 
-{ 
-    echo('<td colspan="'.$dayOfWeek.'"> </td>'); 
-}
+        <?php
+        if(0 != $dayOfWeek) 
+        { 
+            echo('<td colspan="'.$dayOfWeek.'"> </td>'); 
+        }
 
-for($i=1;$i<=$daysInMonth;$i++) 
-{
-    if($i == $numDay) 
-    { 
-        echo('<td id="today">'); 
-        } else { echo("<td>"); 
-    }
-    echo($i);
-    echo("</td>");
+        for($i=1;$i<=$daysInMonth;$i++) 
+        {
+            if($i == $numDay) 
+            { 
+                echo('<td class="w3-blue" id="today">'); 
+                } else { echo("<td>"); 
+            }
+            echo($i);
+            echo("</td>");
 
-    if(date('w', mktime(0,0,0,$numMonth, $i, $numYear)) == 6) 
-    {
-        echo("</tr><tr>");
-    }
-}
-?>
+            if(date('w', mktime(0,0,0,$numMonth, $i, $numYear)) == 6) 
+            {
+                echo("</tr><tr>");
+            }
+        }
+        ?>
         </tr>
     </tbody>
 </table>

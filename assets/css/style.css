@@ -1,3 +1,4 @@
+/* Form style -------------------------------------------------------------------- */
 .login-page {
   width: 360px;
   padding: 150px 0 0;
@@ -104,4 +105,19 @@
 }
 .container .info span .fa {
   color: #EF3B3A;
+}
+
+/* Calendar style ---------------------------------------------------------------- */
+.calendar {
+  width: 100%;
+  
+}
+.calendar td, th {
+  width: 4rem;
+  height: 7rem;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+.calendar th {
+  border-color: white;
 }
