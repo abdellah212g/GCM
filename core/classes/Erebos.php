@@ -83,8 +83,9 @@ Class Erebos extends Database
         }
 
         $this->setFetchMode(PDO::FETCH_ASSOC);
-        $return = $this->fetch($sql);
+        $fetch = $this->fetch($sql);
 
+        $return = array_column($fetch, $column);
         return $return;
     }
 

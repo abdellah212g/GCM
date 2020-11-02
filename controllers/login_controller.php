@@ -26,17 +26,25 @@ if(!empty($_POST) && isset($_POST['submitForm']))
 {
     if ( isset($_POST['name']) && isset($_POST['confirmPsw']) && isset($_POST['email']) )
     {
-        $newUser = array(
-            "username"=>$_POST['name'],
-            "email"=>$_POST['email'],
-            "password"=>$_POST['confirmPsw']
-        );
+        $query_users = $db->fetchColumn('username', 'users');
+        $search = array_search($_POST['name'], $query_users);
 
-        $db->insertRow('users', ':username, :email, :password', $newUser);
-        $query_username = $db->fetchValue('username', 'users', 'username', $_POST['name']);
-        $_SESSION['username'] = $query_username;
-        $access = $db->fetchValue('access', 'users', 'username', $_SESSION['username']);
-        $page = 'user';
+        if(is_int($search))
+        {
+            warning('Username already exist !');
+        } else {
+            $newUser = array(
+                "username"=>$_POST['name'],
+                "email"=>$_POST['email'],
+                "password"=>$_POST['confirmPsw']
+            );
+
+            $db->insertRow('users', ':username, :email, :password', $newUser);
+            $query_username = $db->fetchValue('username', 'users', 'username', $_POST['name']);
+            $_SESSION['username'] = $query_username;
+            $access = $db->fetchValue('access', 'users', 'username', $_SESSION['username']);
+            $page = 'user';
+        }
     } else {
         header("Location: 404.php");
     }

@@ -8,7 +8,7 @@
     <i class="fa fa-twitter w3-hover-opacity"></i>
     <i class="fa fa-linkedin w3-hover-opacity"></i>
  </div>
- <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">Abdellah Marzouk</a></p>
+ <p>Powered by <a href="#" target="_blank">Abdellah Marzouk</a></p>
 </footer>
 
 <script src="assets/js/jquery.js"></script>

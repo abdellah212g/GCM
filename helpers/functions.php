@@ -47,6 +47,11 @@ function autoload(){
     });
 }
 
+/**
+ * Print warning
+ *
+ * @return void
+ */
 function warning($string)
 {
     $warning = <<<EOT
