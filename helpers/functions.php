@@ -35,18 +35,6 @@ function formatDate($date)
     return $date;
 }
 
-
-/**
- * Autolader add
- *
- * @return void
- */
-function autoload(){
-    spl_autoload_register(function ($class) {
-        include_once 'core/classes/' . $class . '.php';
-    });
-}
-
 /**
  * Print warning
  *
