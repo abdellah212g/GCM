@@ -1,8 +1,6 @@
 <?php include_once 'includes/header.php' ?>
 <?php include_once 'includes/navbar.php' ?>
 
-<meta > 
-
 <div class="login-page">
   <div class="form">
     <form class="register-form" method="post">
