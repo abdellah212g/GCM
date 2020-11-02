@@ -9,10 +9,9 @@
     <a href="index.php?page=contact" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white <?= ($page == 'contact' ) ? "w3-white" : "" ?>">Contact</a>
     <a href="<?= (empty($_SESSION['username'])) ? "index.php?page=login" : "index.php?page=user" ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-right w3-black"><?= (empty($_SESSION['username'])) ? 'Login' : ucfirst($_SESSION['username']) ?></a>
     <?php if(!empty($_SESSION['username'])): ?>
-      <a href="<?= "index.php?page=logout" ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-right">Logout</a>
+    <a href="<?= "index.php?page=logout" ?>" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-right"><i class="fa fa-window-close"></i></a>
     <?php endif;?>
-    </div>
-
+  </div>
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
@@ -21,7 +20,7 @@
     <a href="index.php?page=contact" class="w3-bar-item w3-button w3-padding-large">Contact</a>
     <a href="<?= (empty($_SESSION['username'])) ? "index.php?page=login" : "index.php?page=user" ?>" class="w3-bar-item w3-button w3-padding-large"><?= (empty($_SESSION['username'])) ? 'Login' : ucfirst($_SESSION['username']) ?></a>
     <?php if(!empty($_SESSION['username'])): ?>
-      <a href="<?= "index.php?page=logout" ?>" class="w3-bar-item w3-button w3-padding-large w3-right">Logout</a>
+    <a href="<?= "index.php?page=logout" ?>" class="w3-bar-item w3-button w3-padding-large w3-right">Logout</a>
     <?php endif;?>
   </div>
 </nav>

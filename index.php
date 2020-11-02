@@ -15,7 +15,7 @@ if(isset($_GET['page']) AND !empty($_GET['page']))
     $page = 'home';
 }
 
- //array contenant toutes les pages
+//array contenant toutes les pages
 $all_pages = scandir('controllers/');
 
 if(in_array($page.'_controller.php', $all_pages)){
