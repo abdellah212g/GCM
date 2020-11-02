@@ -16,8 +16,8 @@ if(!empty($_POST) && isset($_POST['submit']))
             $page = 'user';
         } else {
             ?>
-            <div class="w3-panel w3-card w3-yellow w3-animate-top" style="width: 360px;padding: auto 0 0;margin-top: 50px;">
-                <p style="position:relative;text-align: center;">Wrong Password !</p>
+            <div class="w3-panel w3-card w3-yellow w3-animate-top" style="float:left;width:100%;padding:auto;margin-top: 50px;">
+                <p style="position:relative;text-align:center;">Wrong Password !</p>
             </div>
             <?php 
         }
