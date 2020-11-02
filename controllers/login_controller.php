@@ -15,11 +15,7 @@ if(!empty($_POST) && isset($_POST['submit']))
             $access = $db->fetchValue('access', 'users', 'username', $_SESSION['username']);
             $page = 'user';
         } else {
-            ?>
-            <div class="w3-panel w3-card w3-yellow w3-animate-top" style="float:left;width:100%;padding:auto;margin-top: 50px;">
-                <p style="position:relative;text-align:center;">Wrong Password !</p>
-            </div>
-            <?php 
+            warning('Wrong Password !');
         }
     } else {
         header("Location: 404.php");

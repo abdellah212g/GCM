@@ -46,3 +46,14 @@ function autoload(){
         include_once 'core/classes/' . $class . '.php';
     });
 }
+
+function warning($string)
+{
+    $warning = <<<EOT
+    <div class="w3-panel w3-card w3-yellow w3-animate-top" style="float:left;width:100%;padding:auto;margin-top: 50px;">
+        <p style="position:relative;text-align:center;">$string</p>
+    </div>
+    EOT;
+
+    echo $warning;
+}
