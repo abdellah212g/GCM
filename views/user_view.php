@@ -1,6 +1,8 @@
-<?php include_once 'includes/header.php' ?>
-<?php include_once 'includes/navbar.php' ?>
-<?php include_once 'includes/sidebar.php' ?>
+<?php 
+include_once 'includes/header.php';
+include_once 'includes/navbar.php';
+include_once 'includes/sidebar.php'; 
+?>
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-top:43px;">
