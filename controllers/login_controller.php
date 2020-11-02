@@ -1,5 +1,5 @@
 <?php
-if(!empty($_POST) && isset($_POST['submit']))
+if(!empty($_POST) && isset($_POST['login']))
 {
 
     if ( isset($_POST['uname']) && isset($_POST['psw']) )
@@ -22,7 +22,7 @@ if(!empty($_POST) && isset($_POST['submit']))
     }
 }
 
-if(!empty($_POST) && isset($_POST['submitForm']))
+if(!empty($_POST) && isset($_POST['subscribe']))
 {
     if ( isset($_POST['name']) && isset($_POST['confirmPsw']) && isset($_POST['email']) )
     {
