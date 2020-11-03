@@ -2,7 +2,7 @@
 include_once 'helpers/functions.php';
 autoload();
 
-$db = new Erebos('localhost', 'gcm', 'root', '');
+$db = new Erebos('localhost', 'gcm', 'root', 'rasetasa@click@1200');
 
 // $newUser = array(
 //     "username"=>'iliass',
