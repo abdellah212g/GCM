@@ -5,7 +5,7 @@ include_once 'includes/sidebar.php';
 ?>
 
 <div class="w3-container">
-    <h5>Recent Users</h5>
+    <h5>Patients</h5>
     <ul class="w3-ul w3-card-4 w3-white">
       <li class="w3-padding-16">
         <img src="assets/img/profile.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
