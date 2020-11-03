@@ -18,7 +18,7 @@
     <a href="index.php?page=appointment" class="w3-bar-item w3-button w3-padding <?= ($page == 'appointment' ) ? "w3-blue" : "" ?>"><i class="fa fa-thumb-tack fa-fw"></i>&nbsp; Appointment</a>
     <?php endif;?>
     <?php if ($access > 0): ?>
-    <a href="index.php?page=setting" class="w3-bar-item w3-button w3-padding <?= ($page == 'setting' ) ? "w3-blue" : "" ?>"><i class="fa fa-cog fa-fw"></i>&nbsp; Settings</a><br><br>
+    <a href="index.php?page=logout" class="w3-bar-item w3-button w3-padding <?= ($page == 'setting' ) ? "w3-blue" : "" ?>"><i class="fa fa-sign-out fa-fw"></i>&nbsp; Logout</a><br><br>
     <?php endif;?>
   </div>
 </nav>
