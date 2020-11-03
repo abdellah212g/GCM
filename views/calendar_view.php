@@ -13,7 +13,7 @@ $daysInMonth = cal_days_in_month(0, $numMonth, $numYear);
 $dayOfWeek = date('w', $firstDay);
 ?>
 <table class=calendar>
-    <caption><? echo($strMonth); ?></caption>
+    <caption><?= $strMonth ?></caption>
     <thead>
         <tr class="w3-grey">
             <th abbr="Sunday" scope="col" title="Sunday">S</th>
