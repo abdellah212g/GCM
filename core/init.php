@@ -1,8 +1,10 @@
 <?php
 session_start();
 include_once 'helpers/functions.php';
-autoload();
+include_once 'core/classes/Autoloader.php';
+Autoloader::load();
 
+<<<<<<< HEAD
 $db = new Erebos('localhost', 'gcm', 'root', 'rasetasa@click@1200');
 
 // $newUser = array(
@@ -17,3 +19,6 @@ $db = new Erebos('localhost', 'gcm', 'root', 'rasetasa@click@1200');
 // $query4 = $db->fetchObject('users', 'username', 'iliass');
 
 // debug($query1);
+=======
+$db = new Erebos('localhost', 'gcm', 'root', '');
+>>>>>>> 4e923499e16be1a5c67e75e100584afc19795127
