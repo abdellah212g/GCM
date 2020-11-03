@@ -9,11 +9,13 @@ if(!empty($_POST) && isset($_POST['login']))
 
         $query_password = $db->fetchValue('password', 'users', 'username', $username);
 
-        if( $password == $query_password ){
+        if( $password == $query_password )
+        {
             $query_username = $db->fetchValue('username', 'users', 'username', $username);
             $_SESSION['username'] = $query_username;
             $access = $db->fetchValue('access', 'users', 'username', $_SESSION['username']);
-            $page = 'user';
+            $default = $db->fetchValue('default_page', 'roles', 'access', $access);
+            $page = $default;
         } else {
             warning('Wrong Password !');
         }
@@ -27,11 +29,18 @@ if(!empty($_POST) && isset($_POST['subscribe']))
     if ( isset($_POST['name']) && isset($_POST['confirmPsw']) && isset($_POST['email']) )
     {
         $query_users = $db->fetchColumn('username', 'users');
-        $search = array_search($_POST['name'], $query_users);
+        $query_emails = $db->fetchColumn('email', 'users');
 
-        if(is_int($search))
+        $search_user = array_search($_POST['name'], $query_users);
+        $search_email = array_search($_POST['email'], $query_emails);
+
+        if(is_int($search_user))
         {
             warning('Username already exist !');
+        } 
+        elseif (is_int($search_email))
+        {
+            warning('E-mail already exist !');
         } else {
             $newUser = array(
                 "username"=>$_POST['name'],
@@ -43,7 +52,7 @@ if(!empty($_POST) && isset($_POST['subscribe']))
             $query_username = $db->fetchValue('username', 'users', 'username', $_POST['name']);
             $_SESSION['username'] = $query_username;
             $access = $db->fetchValue('access', 'users', 'username', $_SESSION['username']);
-            $page = 'user';
+            $page = 'record';
         }
     } else {
         header("Location: 404.php");
