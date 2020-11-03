@@ -1,8 +1,7 @@
 <?php
 session_start();
 include_once 'helpers/functions.php';
-include_once 'core/classes/Autoloader.php';
-Autoloader::load();
+include_once 'core/classes/Erebos.php';
 
 <<<<<<< HEAD
 $db = new Erebos('localhost', 'gcm', 'root', 'rasetasa@click@1200');

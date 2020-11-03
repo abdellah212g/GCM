@@ -1,8 +1,8 @@
 <?php
 if (!empty($_SESSION['username']))
 {
-    $access = $db->fetchValue('access', 'users', 'username', $_SESSION['username']);
-    $default = $db->fetchValue('default_page', 'roles', 'access', $access);
+    $access = $db->selectValue('access', 'users', 'username', $_SESSION['username']);
+    $default = $db->selectValue('default_page', 'roles', 'access', $access);
 
     switch ($access) {
         case '1':
