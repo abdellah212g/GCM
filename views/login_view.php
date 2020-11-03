@@ -6,7 +6,7 @@
     <form class="register-form" method="post">
       <input name="name" type="text" placeholder="name" required/>
       <input name="confirmPsw" type="password" placeholder="password" required/>
-      <input name="email" type="text" placeholder="email address" required/>
+      <input name="email" type="email" placeholder="email address" required/>
       <button name="subscribe" type="submit">create</button>
       <p class="message">Already registered? <a href="">Sign In</a></p>
     </form>
