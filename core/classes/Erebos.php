@@ -182,13 +182,13 @@ Class Erebos
 
     /**
     * Insert column table
-    * @param string $table
-    * @param string $new column name
-    * @param string $data type
-    * @param string $agency
-    * @return requestSQL+PDOStatement Return the sql request constructor and the PDO statement
+    * @param string $table Target table
+    * @param string $newKey Column name
+    * @param string $type Data type
+    * @param string $after Agency
+    * @return requestSQL|PDOStatement Return the sql request constructor and the PDO statement
     */
-    public function insertColumn($table, $name, $type, $after){  
+    public function insertColumn($table, $newKey, $type, $after){  
         $sql = <<<EOT
             ALTER TABLE $table ADD $name $type NOT NULL AFTER $after;
         EOT;
@@ -228,7 +228,7 @@ Class Erebos
     * Delete column table
     * @param string $table Target table
     * @param string $column Target column
-    * @return array Return the fetched column
+    * @return requestSQL|PDOStatement Return the sql request constructor and the PDO statement
     */
     public function deleteColumn($table, $column)
     {
@@ -239,9 +239,7 @@ Class Erebos
             EOT;
         }
 
-        $fetch = $this->fetch($sql);
-
-        $return = array_column($fetch, $column);
-        return $return;
+        $return = $this->execute($sql);
+        return $sql . " | " . $return;
     }
 }
