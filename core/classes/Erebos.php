@@ -1,12 +1,7 @@
 <?php
 /**
 * Erebos v1.0
-* ___________             ___.                 
-* \_   _____/______   ____\_ |__   ____  ______
-*  |    __)_\_  __ \_/ __ \| __ \ /  _ \/  ___/
-*  |        \|  | \/\  ___/| \_\ (  <_> )___ \
-* /_______  /|__|    \___  >___  /\____/____  >
-*         \/             \/    \/           \/
+*
 * https://github.com/Apter-X/erebos
 *
 * This PHP class allow you to applied simple CRUD operations using MySql requests
@@ -17,28 +12,39 @@ Class Erebos
 
     /**
      * Connect to the database
-     * @param $dbhost
-     * @param $dbname
-     * @param $dbuser
-     * @param $dbpswd
+     * @param $db_host
+     * @param $db_name
+     * @param $db_user
+     * @param $db_psw
      */
-    public function __construct($dbhost, $dbname, $dbuser, $dbpswd)
+    public function __construct($db_host, $db_name, $db_user, $db_psw)
     {
-        $this->db = new PDO('mysql:host=' . $dbhost . ';dbname=' . $dbname . ';charset=utf8', $dbuser, $dbpswd);
+        $this->db = new PDO('mysql:host=' . $db_host . ';dbname=' . $db_name . ';charset=utf8', $db_user, $db_psw);
     }
 
     /**
-    * Autoloader add
+    * Load additional classes
     *
     * @return void
     */
-    public function loadPlugins()
+    public function load()
     {
         spl_autoload_register(function ($class) 
         {
             include_once './plugins/' . $class . '.php';
         });
     }
+
+    /**
+    * Define the fetchMode
+    * @param int $fetchMode fetchMode
+    */
+    public function setFetchMode($fetchMode)
+    {
+        $this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, $fetchMode);
+    }
+
+    /*---------------------- private function ---------------------*/
 
     /**
      * Execute an SQL query and return the result (prepared request or not)
@@ -54,21 +60,12 @@ Class Erebos
     }
 
     /**
-     * Define the fetchMode
-     * @param int $fetchMode fetchMode
-     */
-    public function setFetchMode($fetchMode)
-    {
-        $this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, $fetchMode);
-    }
-
-    /**
      * Execute an SQL query and return the status
      * @param string $request SQL query
      * @param array|null $values Optional values
      * @return bool Result of the request
      */
-    public function execute($request, $values = array())
+    private function execute($request, $values = array())
     {
         $results = self::exec($request, $values);
         return ($results) ? true : false;
@@ -81,22 +78,22 @@ Class Erebos
      * @param bool $all Query with several rows or not
      * @return array|mixed Return data
      */
-    public function fetch($request, $values = null, $all = true)
+    private function fetch($request, $values = null, $all = true)
     {
         $results = self::exec($request, $values);
         return ($all) ? $results->fetchAll() : $results->fetch();
     }
     
-    /*---------------------- End of setup ---------------------*/
+    /*---------------------- public functions ---------------------*/
 
     /**
-    * Update value
-    * @param string $table
-    * @param string $target key
-    * @param string $new value
-    * @param string $referential key
-    * @param string|int $value of the referential key
-    * @return requestSQL+PDOStatement
+    * Update a specific value giving the table and references
+    * @param string $table Target table
+    * @param string $key Target key
+    * @param string $newValue
+    * @param string $refKey Referential key
+    * @param string|int $refValue Value of the referential key
+    * @return requestSQL|PDOStatement Return the sql request constructor and the PDO statement
     */
     public function updateValue($table, $key, $newValue, $refKey, $refValue)
     {
@@ -109,12 +106,12 @@ Class Erebos
     }
 
     /**
-    * Select value
-    * @param string $target key
-    * @param string $table
-    * @param string $referential key
-    * @param string|int $value of the referential key
-    * @return string
+    * Select a specific value giving the table and references
+    * @param string $target Target key
+    * @param string $table Target table
+    * @param string $refKey Referential key
+    * @param string|int $refValue Value of the referential key
+    * @return string Return the target value
     */
     public function selectValue($target, $table, $refKey, $refValue)
     {
@@ -125,16 +122,16 @@ Class Erebos
         $this->setFetchMode(PDO::FETCH_ASSOC);
         $response = $this->fetch($sql);
 
-        $return = implode(array_column($response, $target)); //Remove the array and the key
+        $return = implode(array_column($response, $target)); //extract the value from the associative array
         return $return;
     }
 
     /**
-    * Insert row
-    * @param string $table
-    * @param string $referential keys (:$key1, :key2)
-    * @param object $row values
-    * @return requestSQL+PDOStatement
+    * Insert row table
+    * @param string $table Target table
+    * @param string $targets Referential keys (:$key1, :key2)
+    * @param object $values row values
+    * @return requestSQL|PDOStatement Return the sql request constructor and the PDO statement
     */
     public function insertRow($table, $targets, $values)
     {
@@ -149,11 +146,11 @@ Class Erebos
     }
 
     /**
-    * Select row
-    * @param string $table
-    * @param string $referential key
-    * @param string|int $value of the referential key
-    * @return PDOStatement
+    * Select row table
+    * @param string $table Target table
+    * @param string $refKey Referential key
+    * @param string|int $refValue Value of the referential key
+    * @return array Return the fetched row
     */
     public function selectRow($table, $refKey, $refValue){
         $sql = <<<EOT
@@ -168,11 +165,11 @@ Class Erebos
     }
 
     /**
-    * Delete row 
-    * @param string $table
-    * @param string $referential key
-    * @param string|int $value of the referential key
-    * @return requestSQL+PDOStatement
+    * Delete row table
+    * @param string $table Target table
+    * @param string $refKey Referential key
+    * @param string|int $refValue Value of the referential key
+    * @return requestSQL|PDOStatement Return the sql request constructor and the PDO statement
     */
     public function deleteRow($table, $refKey, $refValue){
         $sql = <<<EOT
@@ -184,12 +181,12 @@ Class Erebos
     }
 
     /**
-    * Insert column
+    * Insert column table
     * @param string $table
     * @param string $new column name
     * @param string $data type
     * @param string $agency
-    * @return requestSQL+PDOStatement
+    * @return requestSQL+PDOStatement Return the sql request constructor and the PDO statement
     */
     public function insertColumn($table, $name, $type, $after){  
         $sql = <<<EOT
@@ -202,11 +199,11 @@ Class Erebos
 
     /**
     * Select column table
-    * @param string $target column
-    * @param string $table
-    * @param string $referential key
-    * @param string $value of the referential key
-    * @return requestSQL+PDOStatement
+    * @param string $column Target column
+    * @param string $table Target table
+    * @param string $refKey Referential key
+    * @param string $refValue Value of the referential key
+    * @return array Return the fetched column
     */
     public function selectColumn($column, $table, $refKey = NULL, $refValue = NULL)
     {
