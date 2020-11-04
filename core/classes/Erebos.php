@@ -98,7 +98,7 @@ Class Erebos
     public function updateValue($table, $key, $newValue, $refKey, $refValue)
     {
         $sql = <<<EOT
-            UPDATE $table SET $key='$newValue' WHERE $refKey='$refValue'
+            UPDATE $table SET $key='$newValue' WHERE $refKey='$refValue';
         EOT;
 
         $return = $this->execute($sql);
@@ -116,7 +116,7 @@ Class Erebos
     public function selectValue($target, $table, $refKey, $refValue)
     {
         $sql = <<<EOT
-            SELECT $target FROM $table WHERE $refKey='$refValue'
+            SELECT $target FROM $table WHERE $refKey='$refValue';
         EOT;
 
         $this->setFetchMode(PDO::FETCH_ASSOC);
@@ -138,7 +138,7 @@ Class Erebos
         $entry = str_replace(':', '', $targets);
 
         $sql = <<<EOT
-            INSERT INTO $table ($entry) VALUES ($targets)
+            INSERT INTO $table ($entry) VALUES ($targets);
         EOT;
 
         $return = $this->execute($sql, $values);
@@ -154,7 +154,7 @@ Class Erebos
     */
     public function selectRow($table, $refKey, $refValue){
         $sql = <<<EOT
-            SELECT * FROM $table WHERE $refKey='$refValue'
+            SELECT * FROM $table WHERE $refKey='$refValue';
         EOT;
 
         $this->setFetchMode(PDO::FETCH_ASSOC);
@@ -173,7 +173,7 @@ Class Erebos
     */
     public function deleteRow($table, $refKey, $refValue){
         $sql = <<<EOT
-            DELETE FROM $table WHERE $refKey='$refValue'
+            DELETE FROM $table WHERE $refKey='$refValue';
         EOT;
 
         $return = $this->execute($sql);
@@ -190,7 +190,7 @@ Class Erebos
     */
     public function insertColumn($table, $name, $type, $after){  
         $sql = <<<EOT
-            ALTER TABLE $table ADD $name $type NOT NULL AFTER $after
+            ALTER TABLE $table ADD $name $type NOT NULL AFTER $after;
         EOT;
 
         $return = $this->execute($sql);
@@ -213,11 +213,32 @@ Class Erebos
             EOT;
         } else {
             $sql = <<<EOT
-                SELECT $column FROM $table WHERE $refKey='$refValue'
+                SELECT $column FROM $table WHERE $refKey='$refValue';
             EOT;
         }
 
         $this->setFetchMode(PDO::FETCH_ASSOC);
+        $fetch = $this->fetch($sql);
+
+        $return = array_column($fetch, $column);
+        return $return;
+    }
+
+    /**
+    * Delete column table
+    * @param string $table Target table
+    * @param string $column Target column
+    * @return array Return the fetched column
+    */
+    public function deleteColumn($table, $column)
+    {
+        if(empty($refKey) && empty($refValue)){
+            $sql = <<<EOT
+                ALTER TABLE $table
+                DROP COLUMN $column;
+            EOT;
+        }
+
         $fetch = $this->fetch($sql);
 
         $return = array_column($fetch, $column);
