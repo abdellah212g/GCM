@@ -130,7 +130,7 @@ Class Erebos
     * Insert row table
     * @param string $table Target table
     * @param string $targets Referential keys (:$key1, :key2)
-    * @param object $values row values
+    * @param object $values Row values
     * @return requestSQL|PDOStatement Return the sql request constructor and the PDO statement
     */
     public function insertRow($table, $targets, $values)
@@ -243,3 +243,6 @@ Class Erebos
         return $sql . " | " . $return;
     }
 }
+
+// Change type
+// ALTER TABLE `records` CHANGE `civ` `civ` CHAR(11) NOT NULL; 
