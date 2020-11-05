@@ -1,7 +1,7 @@
 <?php
 include_once 'middleware/auth.php';
 
-if(!empty($_POST) && isset($_POST['submit']))
+if(isset($_POST['submit']))
 {
     $user_id = $db->selectValue('id', 'users', 'username', $_SESSION['username']);
 
