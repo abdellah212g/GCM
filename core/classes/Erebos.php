@@ -158,10 +158,9 @@ Class Erebos
         EOT;
 
         $this->setFetchMode(PDO::FETCH_ASSOC);
-        $query = $this->fetch($sql);
+        $return = $this->fetch($sql);
 
-        $values = $query;
-        return $values;
+        return $return;
     }
 
     /**
@@ -262,13 +261,7 @@ Class Erebos
 
         $this->setFetchMode(PDO::FETCH_ASSOC);
         
-        $query = $this->fetch($sql);
-        $return = array();
-
-        foreach ($query as $key => $value) 
-        {
-            array_push($return, $value);
-        }
+        $return = $this->fetch($sql);
 
         return $return;
     }
