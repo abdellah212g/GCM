@@ -43,7 +43,7 @@ function formatDate($date)
 function alert($string, $color = 'light-grey', $top = 0)
 {
     $message = <<<EOT
-        <div class="w3-panel w3-card w3-$color w3-animate-top" style="position:absolute;width:100%;padding:auto;margin-top: $top;">
+        <div class="w3-panel w3-card w3-$color w3-animate-top alert-depop" style="position:absolute;width:100%;margin-top: $top;">
             <p style="text-align:center;">$string</p>
         </div>
     EOT;

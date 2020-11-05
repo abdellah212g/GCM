@@ -18,5 +18,5 @@ if(!empty($_POST) && isset($_POST['submit']))
 
     $db->insertRow('records', ':user_id, :civ, :birth, :first_name, :last_name, :address, :phone, :comment', $record);
 
-    alert("Form completed !", 'green');
+    alert("Form completed !", "green");
 }

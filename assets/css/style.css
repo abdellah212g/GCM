@@ -110,7 +110,6 @@
 /* Calendar style ---------------------------------------------------------------- */
 .calendar {
   width: 100%;
-  
 }
 
 .calendar th {
@@ -122,8 +121,21 @@
 .calendar td {
   height: 6rem;
   border: 1px solid #ccc;
-  /* text-align: center; */
 }
 .calendar th {
   border-color: white;
+}
+
+/* Alert animation ---------------------------------------------------------------- */
+.alert-depop{
+  animation-name: go-top;
+  animation-duration: 7s;
+  animation-iteration-count: 1;
+  visibility: hidden;
+}
+
+@keyframes go-top {
+  0% {top:50px;}
+  50% {top:50px;visibility: visible;}
+  100% {top:0px;visibility: visible;}
 }
