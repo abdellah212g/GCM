@@ -6,6 +6,7 @@ include_once 'includes/sidebar.php';
 
 <div class="w3-col">
 <div class="w3-container w3-white w3-padding-16">
+    <h5>Appointment</h5>
     <form method="post">
     <div class="w3-row-padding" style="margin:0 -16px;">
         <div class="w3-margin-bottom">

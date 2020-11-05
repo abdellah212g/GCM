@@ -112,11 +112,17 @@
   width: 100%;
   
 }
-.calendar td, th {
-  width: 4rem;
-  height: 7rem;
+
+.calendar th {
+  height: 1.5rem;
   border: 1px solid #ccc;
   text-align: center;
+}
+
+.calendar td {
+  height: 6rem;
+  border: 1px solid #ccc;
+  /* text-align: center; */
 }
 .calendar th {
   border-color: white;

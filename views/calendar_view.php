@@ -12,7 +12,9 @@ $firstDay = mktime(0,0,0,$numMonth,1,$numYear);
 $daysInMonth = cal_days_in_month(0, $numMonth, $numYear);
 $dayOfWeek = date('w', $firstDay);
 ?>
-<table class=calendar>
+<div class="w3-container w3-padding-16">
+<h5>Calendar</h5>
+<table class="calendar">
     <caption><?= $strMonth ?></caption>
     <thead>
         <tr class="w3-grey">
@@ -52,3 +54,4 @@ $dayOfWeek = date('w', $firstDay);
         </tr>
     </tbody>
 </table>
+</div>
