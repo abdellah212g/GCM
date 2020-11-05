@@ -61,9 +61,9 @@ $is_patient = $db->selectValue('is_patient', 'users', 'username',  $_SESSION['us
         <img class="w3-circle" src="assets/img/profile.png" style="width:96px;height:96px">
       </div>
       <div class="w3-col m10 w3-container">
-        <h4><?= ucfirst($record[0]['civ']) . " " . ucfirst($record[0]['first_name']) . " " . ucfirst($record[0]['last_name']) ?></h4>
-        <h4><?= $record[0]['address'] . " " ?><span class="w3-opacity w3-medium"><?= $record[0]['phone'] ?></span></h4>
-        <h4><?= formatDate($record[0]['birth']) ?></h4>
+        <h3><?= ucfirst($record[0]['civ']) . " " . ucfirst($record[0]['first_name']) . " " . ucfirst($record[0]['last_name']) ?></h3>
+        <h5><?= $record[0]['address'] . " " ?><span class="w3-opacity w3-medium"><?= $record[0]['phone'] ?></span></h5>
+        <h5><?= formatDate($record[0]['birth']) ?></h5>
         <p><?= ucfirst($record[0]['comment']) ?></p><br>
         
         <div class="w3-grey">

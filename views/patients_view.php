@@ -14,9 +14,9 @@ $patients_name = $db->innerJoin('civ, birth, first_name, last_name, address, pho
         <img class="w3-circle" src="assets/img/profile.png" style="width:96px;height:96px">
       </div>
       <div class="w3-col m10 w3-container">
-        <h4><?= ucfirst($value['civ']) . " " . ucfirst($value['first_name']) . " " . ucfirst($value['last_name']) ?></h4>
-        <h4><?= $value['address'] . " " ?><span class="w3-opacity w3-medium"><?= $value['phone'] ?></span></h4>
-        <h4><?= formatDate($value['birth']) ?></h4>
+        <h3><?= ucfirst($value['civ']) . " " . ucfirst($value['first_name']) . " " . ucfirst($value['last_name']) ?></h3>
+        <h5><?= $value['address'] . " " ?><span class="w3-opacity w3-medium"><?= $value['phone'] ?></span></h5>
+        <h5><?= formatDate($value['birth']) ?></h5>
         <p><?= ucfirst($value['comment']) ?></p><br>
         
         <div class="w3-grey">
