@@ -31,7 +31,8 @@ function debug($var){
  */
 function formatDate($date)
 {
-    $date = date("F j, Y, g:i a", strtotime($date));
+    // $date = date("F j, Y, g:i a", strtotime($date));
+    $date = date("F j, Y", strtotime($date));
     return $date;
 }
 
