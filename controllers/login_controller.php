@@ -23,7 +23,7 @@ if(!empty($_POST) && isset($_POST['login']))
             $default = $db->selectValue('default_page', 'roles', 'access', $access);
             $page = $default;
         } else {
-            alert('Wrong Password !', 'yellow', '50px');
+            alert('Wrong Password !', 'yellow', '0px');
         }
     } else {
         header("Location: 404.php");
@@ -42,11 +42,11 @@ if(!empty($_POST) && isset($_POST['subscribe']))
 
         if(is_int($search_user))
         {
-            alert('Username already exist !', 'yellow', '50px');
+            alert('Username already exist !', 'yellow', '0px');
         } 
         elseif (is_int($search_email))
         {
-            alert('E-mail already exist !', 'yellow', '50px');
+            alert('E-mail already exist !', 'yellow', '0px');
         } else {
             $newUser = array(
                 "username"=>$_POST['name'],
