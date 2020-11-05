@@ -17,6 +17,7 @@ if(isset($_POST['submit']))
     );
 
     $db->insertRow('records', ':user_id, :civ, :birth, :first_name, :last_name, :address, :phone, :comment', $record);
+    $db->updateValue('users', 'is_patient', '1', 'id', $user_id);
 
     alert("Form completed !", "green");
 }

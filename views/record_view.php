@@ -1,9 +1,13 @@
 <?php 
 include_once 'includes/header.php';
 include_once 'includes/navbar.php';
-include_once 'includes/sidebar.php'; 
+include_once 'includes/sidebar.php';
+
+$user_id = $db->selectValue('id', 'users', 'username', $_SESSION['username']);
+$is_patient = $db->selectValue('is_patient', 'users', 'username',  $_SESSION['username']);
 ?>
 
+<?php if (!$is_patient) :?>
 <div class="w3-col">
 <div class="w3-container w3-white w3-padding-16">
     <h5>Medical Record</h5>
@@ -45,3 +49,29 @@ include_once 'includes/sidebar.php';
     </form>
 </div>
 </div>
+
+<?php else : ?>
+<?php $record = $db->selectRow('records', 'user_id', $user_id); ?>
+
+<div class="w3-container">
+  <h5>Medical Record</h5>
+  <ul class="w3-ul w3-card-4 w3-white">
+    <div class="w3-row">
+      <div class="w3-col m2 text-center w3-container w3-padding">
+        <img class="w3-circle" src="assets/img/profile.png" style="width:96px;height:96px">
+      </div>
+      <div class="w3-col m10 w3-container">
+        <h4><?= ucfirst($record[0]['civ']) . " " . ucfirst($record[0]['first_name']) . " " . ucfirst($record[0]['last_name']) ?></h4>
+        <h4><?= $record[0]['address'] . " " ?><span class="w3-opacity w3-medium"><?= $record[0]['phone'] ?></span></h4>
+        <h4><?= formatDate($record[0]['birth']) ?></h4>
+        <p><?= ucfirst($record[0]['comment']) ?></p><br>
+        
+        <div class="w3-grey">
+          <div class="w3-container w3-center w3-padding w3-green" style="width:<?= $record[0]['progress'] ?>%"></div>
+        </div>
+        <div style="margin:40px;width:70%;height:2px;background-color:black;"></div>
+      </div>
+    </div>
+  </ul>
+</div>
+<?php endif; ?>
