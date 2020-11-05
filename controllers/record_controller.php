@@ -3,7 +3,7 @@ include_once 'middleware/auth.php';
 
 if(!empty($_POST) && isset($_POST['submit']))
 {
-    $user_id = $db->selectValue('user_id', 'users', 'username', $_SESSION['username']);
+    $user_id = $db->selectValue('id', 'users', 'username', $_SESSION['username']);
 
     $record = array(
         'user_id'=>$user_id,
@@ -17,4 +17,6 @@ if(!empty($_POST) && isset($_POST['submit']))
     );
 
     $db->insertRow('records', ':user_id, :civ, :birth, :first_name, :last_name, :address, :phone, :comment', $record);
+
+    alert("Form completed !", 'green');
 }

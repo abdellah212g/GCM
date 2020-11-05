@@ -129,7 +129,7 @@ Class Erebos
     /**
     * Insert row table
     * @param string $table Target table
-    * @param string $targets Referential keys (:$key1, :key2)
+    * @param string $targets Referential keys (:key1, :key2)
     * @param object $values Row values
     * @return requestSQL|PDOStatement Return the sql request constructor and the PDO statement
     */
@@ -242,7 +242,38 @@ Class Erebos
         $return = $this->execute($sql);
         return $sql . " | " . $return;
     }
-}
 
-// Change type
-// ALTER TABLE `records` CHANGE `civ` `civ` CHAR(11) NOT NULL; 
+    /**
+    * Inner join values
+    * @param string $targets Target keys (key1, key2)
+    * @param string $table1 First table
+    * @param string $refKey1 First table referential key
+    * @param string $refValue  Value of the referential key
+    * @param string $refValue Value of the referential key
+    * @return array Return the fetched column
+    */
+    public function innerJoin($targets, $table1, $refKey1, $table2, $refKey2)
+    {
+        $sql = <<<EOT
+            SELECT $targets
+            FROM $table1
+            INNER JOIN $table2 ON $table1.$refKey1 = $table2.$refKey2;
+        EOT;
+
+        $this->setFetchMode(PDO::FETCH_ASSOC);
+        
+        $query = $this->fetch($sql);
+        $return = array();
+
+        foreach ($query as $key => $value) 
+        {
+            array_push($return, $value);
+        }
+
+        return $return;
+    }
+
+    // Change type
+    // ALTER TABLE `records` CHANGE `civ` `civ` CHAR(11) NOT NULL;
+}
+ 
