@@ -40,13 +40,13 @@ function formatDate($date)
  *
  * @return void
  */
-function warning($string)
+function alert($string, $color = 'light-grey', $top = 0)
 {
-    $warning = <<<EOT
-    <div class="w3-panel w3-card w3-yellow w3-animate-top" style="float:left;width:100%;padding:auto;margin-top: 50px;">
-        <p style="position:relative;text-align:center;">$string</p>
-    </div>
+    $message = <<<EOT
+        <div class="w3-panel w3-card w3-$color w3-animate-top" style="position:absolute;width:100%;padding:auto;margin-top: $top;">
+            <p style="text-align:center;">$string</p>
+        </div>
     EOT;
 
-    echo $warning;
+    echo $message;
 }
