@@ -275,5 +275,8 @@ Class Erebos
 
     // Change type
     // ALTER TABLE `records` CHANGE `civ` `civ` CHAR(11) NOT NULL;
+
+    // Change to default
+    // ALTER TABLE `records` CHANGE `progress` `progress` VARCHAR(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '0'; 
 }
  
