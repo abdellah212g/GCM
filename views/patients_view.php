@@ -21,7 +21,7 @@ $patients_name = $db->innerJoin('civ, birth, first_name, last_name, address, pho
           <p><?= ucfirst($value['comment']) ?></p><br>
           <output type="text"></output>
           <div class="w3-grey">
-            <div class="w3-container w3-center w3-padding w3-green" style="width:<?= $value['progress'] ?>%"></div>
+            <div class="w3-container w3-center w3-padding w3-green" style="width:<?= $value['progress'] ?>%">Consultation</div>
           </div>
           <div style="margin:40px;"></div>
         </div>
