@@ -69,7 +69,7 @@ $is_patient = $db->selectValue('is_patient', 'users', 'username',  $_SESSION['us
         <div class="w3-grey">
           <div class="w3-container w3-center w3-padding w3-green" style="width:<?= $record[0]['progress'] ?>%"></div>
         </div>
-        <div style="margin:40px;width:70%;height:2px;background-color:black;"></div>
+        <div style="margin:40px;"></div>
       </div>
     </div>
   </ul>
