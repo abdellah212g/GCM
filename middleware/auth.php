@@ -1,4 +1,5 @@
 <?php
+
 if (isset($_SESSION['username']) && !empty($_SESSION['username']))
 {
     $access = $db->selectValue('access', 'users', 'username', $_SESSION['username']);
@@ -31,9 +32,9 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username']))
             break;
         
         default:
-            header("Location: 404.php");
+            $page = "login";
             break;
     }
 } else {
-    header("Location: 404.php");
+    $page = "login";
 }
